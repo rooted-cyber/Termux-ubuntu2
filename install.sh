@@ -13,8 +13,9 @@ msg opening....
 proot-distro login ubuntu
 hi
 fi
+cp pub $PREFIX/bin
+chmod 777 $APREFIX/bin/pub
 msg "added short command \033[0m pub"
-}
 # ===== Colors =====
 R="\033[1;91m"
 G="\033[1;92m"
