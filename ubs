@@ -1,0 +1,44 @@
+shb() {
+rm $PREFIX/bin/us > /dev/null 2>&1
+cp ~/start* $PREFIX/bin/start*
+mv start-ubuntu.sh us
+chmod 777 $PREFIX/bin/us
+}
+ubi() {
+msg Now downloading....
+wget -O ub.sh https://raw.githubusercontent.com/rooted-cyber/Anlinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh
+bash ub.sh
+shb
+printf "\n \033[1;92m Now you can start ubuntu Type:\033[1;93m us\n"
+}
+upa() {
+if command -v msg;then
+msg setup already
+msg now start
+command -v us || clear;msg not installed ubuntu
+msg
+echo -e -n "installed ubuntu(y/n): " 
+read h
+case $h in
+y|Y)ubi ;;
+n|N)exit ;;
+esac
+else
+bash -c "$(curl -fsSl https://gist.githubusercontent.com/rooted-cyber/ce6248bd681844d35a12bd210989eb89/raw/install)"
+ubi
+fi
+}
+
+
+chk() {
+cd ~
+if [ -e ubuntu-fs ];then
+msg Already installed ubuntu
+msg now start
+us
+else
+msg checking....
+upa
+fi
+}
+chk
