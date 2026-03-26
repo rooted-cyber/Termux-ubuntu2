@@ -13,6 +13,7 @@ msg opening....
 proot-distro login ubuntu
 hi
 fi
+msg "added short command \033[0m pub"
 }
 # ===== Colors =====
 R="\033[1;91m"
